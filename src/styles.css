@@ -160,4 +160,30 @@
     -webkit-overflow-scrolling: touch;
     touch-action: pan-y;
   }
+
+  /* Universal button & interactive cursor + hover polish */
+  button,
+  [role="button"],
+  [role="tab"],
+  a,
+  input[type="button"],
+  input[type="submit"],
+  input[type="reset"] {
+    cursor: pointer;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+  }
+
+  button:active:not(:disabled),
+  [role="button"]:active:not([aria-disabled="true"]) {
+    transform: scale(0.98);
+  }
+
+  button:disabled,
+  [role="button"][aria-disabled="true"],
+  [disabled] {
+    cursor: not-allowed;
+    opacity: 0.55;
+  }
 }

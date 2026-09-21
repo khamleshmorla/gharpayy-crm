@@ -336,11 +336,11 @@ export function AppShell({ children }: { children: ReactNode }) {
                 key={`${it.to}-${it.label}`}
                 to={it.to}
                 className={cn(
-                  "flex items-center gap-2.5 px-3 py-2 rounded-md text-[13px] transition-colors",
+                  "flex items-center gap-2.5 px-3 py-2 rounded-md text-[13px] transition-all duration-150 cursor-pointer active:scale-[0.98]",
                   active
-                    ? "bg-sidebar-accent text-sidebar-accent-foreground"
-                    : "hover:bg-sidebar-accent/60 hover:text-sidebar-accent-foreground",
-                  it.accent && !active && "text-accent",
+                    ? "bg-sidebar-accent text-sidebar-accent-foreground font-semibold shadow-xs"
+                    : "hover:bg-sidebar-accent/80 hover:text-sidebar-accent-foreground text-sidebar-foreground/90",
+                  it.accent && !active && "text-accent font-medium",
                 )}
               >
                 <Icon className="h-4 w-4" />
@@ -369,7 +369,7 @@ export function AppShell({ children }: { children: ReactNode }) {
           </div>
           <div className="text-[10px] uppercase tracking-wider text-sidebar-foreground px-1">View as</div>
           <Select value={role} onValueChange={(v) => setRole(v as typeof role)}>
-            <SelectTrigger className="bg-sidebar-accent border-sidebar-border text-sidebar-accent-foreground h-8 text-xs">
+            <SelectTrigger className="bg-sidebar-accent border-sidebar-border text-sidebar-accent-foreground h-8 text-xs cursor-pointer hover:border-accent/50 transition-colors">
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
@@ -381,7 +381,7 @@ export function AppShell({ children }: { children: ReactNode }) {
           </Select>
           {role === "tcm" && (
             <Select value={currentTcmId} onValueChange={setCurrentTcmId}>
-              <SelectTrigger className="bg-sidebar-accent border-sidebar-border text-sidebar-accent-foreground h-8 text-xs">
+              <SelectTrigger className="bg-sidebar-accent border-sidebar-border text-sidebar-accent-foreground h-8 text-xs cursor-pointer hover:border-accent/50 transition-colors">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -400,14 +400,14 @@ export function AppShell({ children }: { children: ReactNode }) {
           <div className="md:hidden font-display font-semibold">Gharpayy</div>
           <button
             onClick={() => window.dispatchEvent(new KeyboardEvent("keydown", { key: "k", metaKey: true }))}
-            className="md:hidden inline-flex h-8 w-8 items-center justify-center rounded-md border border-border bg-card text-muted-foreground"
+            className="md:hidden inline-flex h-8 w-8 items-center justify-center rounded-md border border-border bg-card hover:bg-muted/60 text-muted-foreground cursor-pointer active:scale-95 transition-all"
             aria-label="Open command palette"
           >
             <Search className="h-3.5 w-3.5" />
           </button>
           <button
             onClick={() => window.dispatchEvent(new KeyboardEvent("keydown", { key: "k", metaKey: true }))}
-            className="hidden md:flex items-center gap-2 h-8 px-3 rounded-md border border-border bg-card hover:bg-muted/60 text-xs text-muted-foreground w-full max-w-md transition-colors"
+            className="hidden md:flex items-center gap-2 h-8 px-3 rounded-md border border-border bg-card hover:border-primary/50 hover:bg-muted/60 text-xs text-muted-foreground w-full max-w-md cursor-pointer active:scale-[0.99] transition-all"
           >
             <Search className="h-3.5 w-3.5" />
             <span>Jump to lead, page or action…</span>
@@ -441,8 +441,8 @@ export function AppShell({ children }: { children: ReactNode }) {
                 key={`${item.to}-${item.label}`}
                 to={item.to}
                 className={cn(
-                  "relative flex shrink-0 snap-start flex-col items-center justify-center gap-1 rounded-md px-3 py-1.5 text-[10px] font-medium transition-colors min-w-[64px] min-h-[44px]",
-                  active ? "bg-accent/10 text-accent" : "text-muted-foreground hover:bg-muted/60",
+                  "relative flex shrink-0 snap-start flex-col items-center justify-center gap-1 rounded-md px-3 py-1.5 text-[10px] font-medium transition-all min-w-[64px] min-h-[44px] cursor-pointer active:scale-95",
+                  active ? "bg-accent/10 text-accent font-semibold" : "text-muted-foreground hover:bg-muted/60 hover:text-foreground",
                 )}
               >
                 <Icon className="h-4 w-4" />

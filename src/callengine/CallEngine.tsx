@@ -26,10 +26,13 @@ import {
 
 const Chip = ({ on, children, onClick }: { on?: boolean; children: React.ReactNode; onClick: () => void }) => (
   <button
+    type="button"
     onClick={onClick}
     className={cn(
-      "rounded-full border px-2.5 py-1 text-[11px] transition-colors",
-      on ? "border-primary bg-primary/10 text-primary" : "border-border text-muted-foreground hover:bg-muted",
+      "rounded-full border px-3 py-1 text-[11px] cursor-pointer transition-all duration-150 select-none active:scale-95",
+      on
+        ? "border-primary bg-primary/15 text-primary font-semibold shadow-xs"
+        : "border-border text-muted-foreground hover:border-primary/40 hover:bg-muted/70 hover:text-foreground",
     )}
   >
     {children}

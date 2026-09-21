@@ -303,21 +303,21 @@ export function HomePage() {
               <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
                 <Link
                   to="/closing"
-                  className="px-6 py-3 rounded-xl bg-orange-500 hover:bg-orange-600 text-white font-semibold text-sm shadow-xl shadow-orange-500/25 flex items-center gap-2 hover:-translate-y-0.5 transition-all"
+                  className="px-6 py-3 rounded-xl bg-orange-500 hover:bg-orange-600 text-white font-semibold text-sm shadow-xl shadow-orange-500/25 flex items-center gap-2 hover:-translate-y-0.5 active:scale-[0.98] cursor-pointer transition-all duration-200"
                 >
                   <Target className="w-4 h-4" />
                   <span>Open Closing Desk</span>
                 </Link>
                 <Link
                   to="/movement"
-                  className="px-6 py-3 rounded-xl bg-white/10 hover:bg-white/15 text-white font-semibold text-sm border border-white/15 flex items-center gap-2 hover:-translate-y-0.5 transition-all"
+                  className="px-6 py-3 rounded-xl bg-white/10 hover:bg-white/15 text-white font-semibold text-sm border border-white/15 hover:border-orange-500/40 flex items-center gap-2 hover:-translate-y-0.5 active:scale-[0.98] cursor-pointer transition-all duration-200"
                 >
                   <Layers className="w-4 h-4" />
                   <span>Explore Movement OS</span>
                 </Link>
                 <Link
                   to="/leads"
-                  className="px-6 py-3 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 font-semibold text-sm border border-white/10 flex items-center gap-2 transition-all"
+                  className="px-6 py-3 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white font-semibold text-sm border border-white/10 hover:border-orange-500/40 flex items-center gap-2 hover:-translate-y-0.5 active:scale-[0.98] cursor-pointer transition-all duration-200"
                 >
                   <PhoneCall className="w-4 h-4" />
                   <span>M-POWER CALL</span>
@@ -394,8 +394,8 @@ export function HomePage() {
                 <button
                   type="button"
                   onClick={() => setActiveTab("all")}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${
-                    activeTab === "all" ? "bg-orange-500 text-white shadow-sm" : "text-slate-400 hover:text-white"
+                  className={`px-3.5 py-1.5 rounded-lg text-xs font-medium cursor-pointer transition-all duration-150 active:scale-95 ${
+                    activeTab === "all" ? "bg-orange-500 text-white shadow-md shadow-orange-500/25" : "text-slate-400 hover:text-white hover:bg-white/10"
                   }`}
                 >
                   All Modules
@@ -403,8 +403,8 @@ export function HomePage() {
                 <button
                   type="button"
                   onClick={() => setActiveTab("closing")}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${
-                    activeTab === "closing" ? "bg-orange-500 text-white shadow-sm" : "text-slate-400 hover:text-white"
+                  className={`px-3.5 py-1.5 rounded-lg text-xs font-medium cursor-pointer transition-all duration-150 active:scale-95 ${
+                    activeTab === "closing" ? "bg-orange-500 text-white shadow-md shadow-orange-500/25" : "text-slate-400 hover:text-white hover:bg-white/10"
                   }`}
                 >
                   Closing
@@ -412,8 +412,8 @@ export function HomePage() {
                 <button
                   type="button"
                   onClick={() => setActiveTab("calling")}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${
-                    activeTab === "calling" ? "bg-orange-500 text-white shadow-sm" : "text-slate-400 hover:text-white"
+                  className={`px-3.5 py-1.5 rounded-lg text-xs font-medium cursor-pointer transition-all duration-150 active:scale-95 ${
+                    activeTab === "calling" ? "bg-orange-500 text-white shadow-md shadow-orange-500/25" : "text-slate-400 hover:text-white hover:bg-white/10"
                   }`}
                 >
                   Call Ladder
@@ -421,8 +421,8 @@ export function HomePage() {
                 <button
                   type="button"
                   onClick={() => setActiveTab("operations")}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${
-                    activeTab === "operations" ? "bg-orange-500 text-white shadow-sm" : "text-slate-400 hover:text-white"
+                  className={`px-3.5 py-1.5 rounded-lg text-xs font-medium cursor-pointer transition-all duration-150 active:scale-95 ${
+                    activeTab === "operations" ? "bg-orange-500 text-white shadow-md shadow-orange-500/25" : "text-slate-400 hover:text-white hover:bg-white/10"
                   }`}
                 >
                   Operations
@@ -479,7 +479,7 @@ export function HomePage() {
                     <div className="mt-6 pt-4 border-t border-white/5">
                       <Link
                         to={module.href}
-                        className="w-full py-2.5 px-4 rounded-xl bg-white/5 group-hover:bg-orange-500 text-slate-200 group-hover:text-white text-xs font-semibold flex items-center justify-center gap-2 transition-all"
+                        className="w-full py-2.5 px-4 rounded-xl bg-white/5 hover:bg-orange-500 text-slate-200 hover:text-white text-xs font-semibold flex items-center justify-center gap-2 cursor-pointer active:scale-[0.98] transition-all shadow-sm hover:shadow-orange-500/20"
                       >
                         <span>Launch {module.title}</span>
                         <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
@@ -563,104 +563,104 @@ export function HomePage() {
                       <span className="text-[10px] text-slate-400">Select Lead Status:</span>
                     </div>
 
-                    {/* Stage Selector */}
-                    <div className="grid grid-cols-3 gap-2 mb-4">
-                      {[
-                        { id: "new_lead", label: "New Inquiry" },
-                        { id: "tour_scheduled", label: "Tour Booked" },
-                        { id: "tour_completed", label: "Tour Finished" },
-                      ].map((st) => (
-                        <button
-                          key={st.id}
-                          type="button"
-                          onClick={() => setSimulatedStage(st.id)}
-                          className={`py-1.5 px-2 rounded-lg text-xs font-medium border transition-all ${
-                            simulatedStage === st.id
-                              ? "bg-orange-500 text-white border-orange-400 shadow-sm"
-                              : "bg-white/5 text-slate-400 border-white/5 hover:text-white"
-                          }`}
-                        >
-                          {st.label}
-                        </button>
-                      ))}
-                    </div>
+                      {/* Stage Selector */}
+                      <div className="grid grid-cols-3 gap-2 mb-4">
+                        {[
+                          { id: "new_lead", label: "New Inquiry" },
+                          { id: "tour_scheduled", label: "Tour Booked" },
+                          { id: "tour_completed", label: "Tour Finished" },
+                        ].map((st) => (
+                          <button
+                            key={st.id}
+                            type="button"
+                            onClick={() => setSimulatedStage(st.id)}
+                            className={`py-2 px-3 rounded-lg text-xs font-medium border cursor-pointer active:scale-95 transition-all duration-150 ${
+                              simulatedStage === st.id
+                                ? "bg-orange-500 text-white border-orange-400 shadow-md shadow-orange-500/25 font-semibold"
+                                : "bg-white/5 text-slate-400 border-white/10 hover:text-white hover:bg-white/10"
+                            }`}
+                          >
+                            {st.label}
+                          </button>
+                        ))}
+                      </div>
 
-                    {/* Dynamic Simulated Output */}
-                    <div className="rounded-xl bg-white/[0.04] border border-white/10 p-4">
-                      {simulatedStage === "new_lead" && (
-                        <div>
-                          <div className="flex items-center justify-between">
-                            <span className="text-xs font-bold text-orange-400">Recommended Action: Call Qualification</span>
-                            <span className="text-[10px] px-2 py-0.5 rounded bg-blue-500/20 text-blue-400">Urgency: High</span>
+                      {/* Dynamic Simulated Output */}
+                      <div className="rounded-xl bg-white/[0.04] border border-white/10 p-4">
+                        {simulatedStage === "new_lead" && (
+                          <div>
+                            <div className="flex items-center justify-between">
+                              <span className="text-xs font-bold text-orange-400">Recommended Action: Call Qualification</span>
+                              <span className="text-[10px] px-2 py-0.5 rounded bg-blue-500/20 text-blue-400">Urgency: High</span>
+                            </div>
+                            <p className="text-xs text-slate-300 mt-2 font-medium">
+                              &quot;Lead came in 12m ago looking for 2-sharing in Koramangala. Trigger M-POWER CALL briefing.&quot;
+                            </p>
+                            <div className="mt-3 p-2.5 rounded-lg bg-black/40 text-[11px] text-slate-400 font-mono">
+                              WhatsApp: &quot;Hi Rohan, noticed your interest in Gharpayy Koramangala! Have 2 rooms available for immediate check-in...&quot;
+                            </div>
+                            <div className="mt-3 flex gap-2">
+                              <Link
+                                to="/leads"
+                                className="px-3.5 py-2 rounded-lg bg-orange-500 hover:bg-orange-600 text-white text-xs font-semibold cursor-pointer shadow-md shadow-orange-500/20 hover:shadow-orange-500/35 active:scale-95 transition-all"
+                              >
+                                Launch Call Console →
+                              </Link>
+                            </div>
                           </div>
-                          <p className="text-xs text-slate-300 mt-2 font-medium">
-                            &quot;Lead came in 12m ago looking for 2-sharing in Koramangala. Trigger M-POWER CALL briefing.&quot;
-                          </p>
-                          <div className="mt-3 p-2.5 rounded-lg bg-black/40 text-[11px] text-slate-400 font-mono">
-                            WhatsApp: &quot;Hi Rohan, noticed your interest in Gharpayy Koramangala! Have 2 rooms available for immediate check-in...&quot;
-                          </div>
-                          <div className="mt-3 flex gap-2">
-                            <Link
-                              to="/leads"
-                              className="px-3 py-1.5 rounded-lg bg-orange-500 text-white text-xs font-semibold hover:bg-orange-600 transition-colors"
-                            >
-                              Launch Call Console →
-                            </Link>
-                          </div>
-                        </div>
-                      )}
+                        )}
 
-                      {simulatedStage === "tour_scheduled" && (
-                        <div>
-                          <div className="flex items-center justify-between">
-                            <span className="text-xs font-bold text-amber-400">Recommended Action: Tour Confirmation Lock</span>
-                            <span className="text-[10px] px-2 py-0.5 rounded bg-amber-500/20 text-amber-400">Urgency: Medium</span>
+                        {simulatedStage === "tour_scheduled" && (
+                          <div>
+                            <div className="flex items-center justify-between">
+                              <span className="text-xs font-bold text-amber-400">Recommended Action: Tour Confirmation Lock</span>
+                              <span className="text-[10px] px-2 py-0.5 rounded bg-amber-500/20 text-amber-400">Urgency: Medium</span>
+                            </div>
+                            <p className="text-xs text-slate-300 mt-2 font-medium">
+                              &quot;Tour set for today 5:30 PM at HSR Layout. Send Google Maps location & manager contact.&quot;
+                            </p>
+                            <div className="mt-3 p-2.5 rounded-lg bg-black/40 text-[11px] text-slate-400 font-mono">
+                              WhatsApp: &quot;Hi Rohan, confirming your visit today at 5:30 PM. Location: maps.google.com/... Property manager Suresh is expecting you!&quot;
+                            </div>
+                            <div className="mt-3 flex gap-2">
+                              <Link
+                                to="/movement"
+                                className="px-3.5 py-2 rounded-lg bg-orange-500 hover:bg-orange-600 text-white text-xs font-semibold cursor-pointer shadow-md shadow-orange-500/20 hover:shadow-orange-500/35 active:scale-95 transition-all"
+                              >
+                                Open Movement OS →
+                              </Link>
+                            </div>
                           </div>
-                          <p className="text-xs text-slate-300 mt-2 font-medium">
-                            &quot;Tour set for today 5:30 PM at HSR Layout. Send Google Maps location & manager contact.&quot;
-                          </p>
-                          <div className="mt-3 p-2.5 rounded-lg bg-black/40 text-[11px] text-slate-400 font-mono">
-                            WhatsApp: &quot;Hi Rohan, confirming your visit today at 5:30 PM. Location: maps.google.com/... Property manager Suresh is expecting you!&quot;
-                          </div>
-                          <div className="mt-3 flex gap-2">
-                            <Link
-                              to="/movement"
-                              className="px-3 py-1.5 rounded-lg bg-orange-500 text-white text-xs font-semibold hover:bg-orange-600 transition-colors"
-                            >
-                              Open Movement OS →
-                            </Link>
-                          </div>
-                        </div>
-                      )}
+                        )}
 
-                      {simulatedStage === "tour_completed" && (
-                        <div>
-                          <div className="flex items-center justify-between">
-                            <span className="text-xs font-bold text-emerald-400">Recommended Action: Send 1-Click Closing Offer</span>
-                            <span className="text-[10px] px-2 py-0.5 rounded bg-red-500/20 text-red-400">Closing Window: Active</span>
+                        {simulatedStage === "tour_completed" && (
+                          <div>
+                            <div className="flex items-center justify-between">
+                              <span className="text-xs font-bold text-emerald-400">Recommended Action: Send 1-Click Closing Offer</span>
+                              <span className="text-[10px] px-2 py-0.5 rounded bg-red-500/20 text-red-400">Closing Window: Active</span>
+                            </div>
+                            <p className="text-xs text-slate-300 mt-2 font-medium">
+                              &quot;Tour finished 2h ago. Liked Room 204. Send pre-filled ₹2,000 token payment link to lock bed before weekend surge.&quot;
+                            </p>
+                            <div className="mt-3 p-2.5 rounded-lg bg-black/40 text-[11px] text-slate-400 font-mono">
+                              WhatsApp: &quot;Hi Rohan, great meeting you at Gharpayy HSR! Holding Bed 204-B until 9 PM tonight. Pay ₹2,000 token here: pay.gharpayy.com/...&quot;
+                            </div>
+                            <div className="mt-3 flex gap-2">
+                              <Link
+                                to="/closing"
+                                className="px-3.5 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-600 text-white text-xs font-semibold cursor-pointer shadow-md shadow-emerald-500/20 hover:shadow-emerald-500/35 active:scale-95 transition-all"
+                              >
+                                Open Closing Desk →
+                              </Link>
+                            </div>
                           </div>
-                          <p className="text-xs text-slate-300 mt-2 font-medium">
-                            &quot;Tour finished 2h ago. Liked Room 204. Send pre-filled ₹2,000 token payment link to lock bed before weekend surge.&quot;
-                          </p>
-                          <div className="mt-3 p-2.5 rounded-lg bg-black/40 text-[11px] text-slate-400 font-mono">
-                            WhatsApp: &quot;Hi Rohan, great meeting you at Gharpayy HSR! Holding Bed 204-B until 9 PM tonight. Pay ₹2,000 token here: pay.gharpayy.com/...&quot;
-                          </div>
-                          <div className="mt-3 flex gap-2">
-                            <Link
-                              to="/closing"
-                              className="px-3 py-1.5 rounded-lg bg-emerald-500 text-white text-xs font-semibold hover:bg-emerald-600 transition-colors"
-                            >
-                              Open Closing Desk →
-                            </Link>
-                          </div>
-                        </div>
-                      )}
+                        )}
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </section>
+            </section>
 
           {/* Quick Route Directory */}
           <section className="py-12 border-t border-white/10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
@@ -681,9 +681,9 @@ export function HomePage() {
                   <Link
                     key={route.path}
                     to={route.path}
-                    className="p-3 rounded-xl bg-white/[0.02] hover:bg-white/[0.07] border border-white/5 hover:border-orange-500/30 flex items-center gap-2.5 text-xs text-slate-300 hover:text-white transition-all"
+                    className="p-3.5 rounded-xl bg-white/[0.02] hover:bg-white/[0.08] border border-white/5 hover:border-orange-500/40 flex items-center gap-2.5 text-xs text-slate-300 hover:text-white cursor-pointer hover:-translate-y-0.5 active:scale-95 transition-all group"
                   >
-                    <RouteIcon className="w-4 h-4 text-orange-400 shrink-0" />
+                    <RouteIcon className="w-4 h-4 text-orange-400 group-hover:scale-110 transition-transform shrink-0" />
                     <span className="font-medium truncate">{route.name}</span>
                   </Link>
                 );

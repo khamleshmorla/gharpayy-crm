@@ -186,7 +186,7 @@ export function ClosingPipeline() {
               <button
                 key={`${s.customerId}-${s.signalType}-${i}`}
                 onClick={() => setSelected(s.customerId)}
-                className="w-full flex items-center gap-2 text-xs py-1 px-2 rounded hover:bg-destructive/10 transition text-left"
+                className="w-full flex items-center gap-2 text-xs py-1.5 px-2 rounded cursor-pointer hover:bg-destructive/15 active:scale-[0.99] transition-all text-left"
               >
                 <Badge className={cn("text-[9px] shrink-0", SEVERITY_STYLE[s.severity])}>{s.severity}</Badge>
                 <span className="font-medium truncate">{s.customerName}</span>
@@ -201,17 +201,17 @@ export function ClosingPipeline() {
       {/* Pipeline KPI Strip */}
       <div className="grid grid-cols-2 md:grid-cols-5 gap-2">
         <button onClick={() => setFilter("all")}
-          className={cn("rounded-lg border p-3 text-left transition hover:border-primary",
-            filter === "all" ? "border-primary bg-primary/5" : "border-border")}>
-          <div className="text-[10px] uppercase text-muted-foreground">Total closing</div>
-          <div className="text-xl font-semibold">{closingCustomers.length}</div>
+          className={cn("rounded-lg border p-3 text-left cursor-pointer transition-all duration-150 hover:border-primary active:scale-[0.98]",
+            filter === "all" ? "border-primary bg-primary/10 shadow-xs" : "border-border hover:bg-muted/40")}>
+          <div className="text-[10px] uppercase text-muted-foreground font-semibold">Total closing</div>
+          <div className="text-xl font-bold">{closingCustomers.length}</div>
         </button>
         {CLOSING_STAGES.map((s) => (
           <button key={s} onClick={() => setFilter(s)}
-            className={cn("rounded-lg border p-3 text-left transition hover:border-primary",
-              filter === s ? "border-primary bg-primary/5" : "border-border")}>
-            <div className="text-[10px] uppercase text-muted-foreground">{STAGE_LABEL[s]}</div>
-            <div className="text-xl font-semibold">{stageCounts[s] ?? 0}</div>
+            className={cn("rounded-lg border p-3 text-left cursor-pointer transition-all duration-150 hover:border-primary active:scale-[0.98]",
+              filter === s ? "border-primary bg-primary/10 shadow-xs" : "border-border hover:bg-muted/40")}>
+            <div className="text-[10px] uppercase text-muted-foreground font-semibold">{STAGE_LABEL[s]}</div>
+            <div className="text-xl font-bold">{stageCounts[s] ?? 0}</div>
           </button>
         ))}
       </div>
@@ -227,8 +227,8 @@ export function ClosingPipeline() {
       {/* Customer List + Work Panel (split layout) */}
       <div className="grid grid-cols-1 lg:grid-cols-[380px_1fr] gap-3">
         {/* Customer List */}
-        <div className="rounded-lg border border-border bg-card overflow-hidden">
-          <div className="px-3 py-2 border-b border-border flex items-center justify-between">
+        <div className="rounded-lg border border-border bg-card overflow-hidden shadow-xs">
+          <div className="px-3 py-2 border-b border-border flex items-center justify-between bg-muted/20">
             <span className="text-[11px] uppercase tracking-wider text-muted-foreground font-semibold">
               Closing pipeline — work top to bottom
             </span>
@@ -242,8 +242,8 @@ export function ClosingPipeline() {
               return (
                 <button key={c.ulid} onClick={() => setSelected(c.ulid)}
                   className={cn(
-                    "w-full text-left px-3 py-2.5 flex items-start gap-2 hover:bg-muted/50 transition",
-                    selected === c.ulid && "bg-primary/5",
+                    "w-full text-left px-3 py-2.5 flex items-start gap-2 cursor-pointer hover:bg-muted/60 active:bg-muted transition-colors",
+                    selected === c.ulid && "bg-primary/10 border-l-2 border-l-primary font-medium",
                     isOverdue && "border-l-2 border-l-destructive",
                   )}>
                   <div className="min-w-0 flex-1">
